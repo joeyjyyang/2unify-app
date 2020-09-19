@@ -1,10 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { Component } from "react";
 import { MainScreen } from "./app/screens/";
 import { AppLoading } from "expo";
 
-const App = () => {
-  return <MainScreen />;
-};
+class App extends Component {
+  render() {
+    return <MainScreen />;
+  }
+}
 
 export default App;

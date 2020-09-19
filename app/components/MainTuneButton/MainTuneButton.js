@@ -17,7 +17,10 @@ const MainTuneButton = (props) => {
 };
 
 const styles = StyleSheet.create({
-  tuneButton: {},
+  tuneButton: {
+    width: 200,
+    height: 200,
+  },
 });
 
 export default MainTuneButton;
