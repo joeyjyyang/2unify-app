@@ -1,11 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import { MainScreen } from "./app/screens/";
-import { AppLoading } from "expo";
+import store from "./app/state/store";
+import { Provider } from "react-redux";
 
 class App extends Component {
   render() {
-    return <MainScreen />;
+    return (
+      <Provider store={store}>
+        <MainScreen />
+      </Provider>
+    );
   }
 }
 
