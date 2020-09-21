@@ -9,9 +9,9 @@ import {
 } from "react-native";
 
 class PowerOffButton extends Component {
-  handlePowerOffButtonPress() {
+  handlePowerOffButtonPress = () => {
     console.log("Power Off button pressed.");
-  }
+  };
 
   render() {
     return (

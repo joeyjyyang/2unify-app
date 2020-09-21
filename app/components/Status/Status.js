@@ -7,7 +7,13 @@ class StatusBase extends Component {
     const { status } = this.props;
 
     return (
-      <Text style={{ color: "#FFFFFF", fontFamily: "NovaSlim_400Regular" }}>
+      <Text
+        style={{
+          color: "#FFFFFF",
+          fontFamily: "NovaSlim_400Regular",
+          fontSize: 20,
+        }}
+      >
         {status}
       </Text>
     );
@@ -20,8 +26,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {};
+//const mapDispatchToProps = {};
 
-const Status = connect(mapStateToProps, mapDispatchToProps)(StatusBase);
+const Status = connect(mapStateToProps, null)(StatusBase);
 
 export default Status;

@@ -9,9 +9,9 @@ import {
 } from "react-native";
 
 class StopTuneButton extends Component {
-  handleStopTuneButtonPress() {
+  handleStopTuneButtonPress = () => {
     console.log("Stop Tune button pressed.");
-  }
+  };
 
   render() {
     return (

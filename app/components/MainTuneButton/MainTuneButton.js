@@ -3,12 +3,11 @@ import { StyleSheet, Image, TouchableWithoutFeedback } from "react-native";
 import { setStatus } from "../../state/App.slice";
 import { connect } from "react-redux";
 
-class MainTuneButton extends Component {
-  handleTuneButtonPress() {
-    //const { setStatus } = this.props;
-
+class MainTuneButtonBase extends Component {
+  handleTuneButtonPress = () => {
+    this.props.setStatus("TUNING...");
     console.log("Tune button pressed.");
-  }
+  };
 
   render() {
     return (
@@ -31,15 +30,12 @@ const styles = StyleSheet.create({
 
 /*const mapStateToProps = (state) => {
   return {};
-};
+};*/
 
 const mapDispatchToProps = {
   setStatus,
 };
 
-const MainTuneButton = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MainTuneButtonBase);*/
+const MainTuneButton = connect(null, mapDispatchToProps)(MainTuneButtonBase);
 
 export default MainTuneButton;
