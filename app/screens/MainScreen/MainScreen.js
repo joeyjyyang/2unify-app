@@ -4,14 +4,27 @@ import { Status, StopTuneButton, PowerOffButton } from "../../components/";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 import MainTuneButton from "../../components/MainTuneButton/MainTuneButton";
+import { connect } from "react-redux";
 
 let customFonts = {
   NovaSlim_400Regular: require("../../assets/fonts/NovaSlim-Regular.ttf"),
 };
 
-class MainScreen extends Component {
+class MainScreenBase extends Component {
   state = {
     fontsLoaded: false,
+  };
+
+  getButton = () => {
+    const { status } = this.props;
+    // PUSH 2 TUNE state
+    if (status === "PUSH_2_TUNE") {
+      return <PowerOffButton />;
+    }
+    // INITIALIZING, TUNING, FINISHING, COMPLETED states
+    else {
+      return <StopTuneButton />;
+    }
   };
 
   async _loadFontsAsync() {
@@ -24,7 +37,7 @@ class MainScreen extends Component {
   }
 
   render() {
-    if (!this.state.fontsLoaded) {
+    if (status === "") {
       return <AppLoading />;
     } else {
       return (
@@ -35,10 +48,7 @@ class MainScreen extends Component {
           >
             <Status />
             <MainTuneButton />
-            <View style={styles.bottomWidgets}>
-              <StopTuneButton />
-              <PowerOffButton />
-            </View>
+            <View style={styles.bottomWidgets}>{this.getButton}</View>
           </ImageBackground>
         </View>
       );
@@ -60,5 +70,15 @@ const styles = StyleSheet.create({
     //justifyContent: "space-between",
   },
 });
+
+const mapStateToProps = (state) => {
+  return {
+    status: state.app.status,
+  };
+};
+
+//const mapDispatchToProps = {};
+
+const MainScreen = connect(mapStateToProps, null)(MainScreenBase);
 
 export default MainScreen;
