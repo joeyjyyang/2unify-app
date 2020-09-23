@@ -17,8 +17,8 @@ class MainScreenBase extends Component {
 
   getButton = () => {
     const { status } = this.props;
-    // PUSH 2 TUNE state
-    if (status === "PUSH_2_TUNE") {
+
+    if (status === "push2Tune") {
       return <PowerOffButton />;
     }
     // INITIALIZING, TUNING, FINISHING, COMPLETED states

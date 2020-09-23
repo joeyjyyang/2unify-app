@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const AppSlice = createSlice({
   name: "app",
   initialState: {
-    status: "PUSH 2 TUNE.",
+    status: "push2Tune",
   },
   reducers: {
     setStatus: (state, action) => {

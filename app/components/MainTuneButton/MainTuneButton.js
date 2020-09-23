@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 class MainTuneButtonBase extends Component {
   handleTuneButtonPress = () => {
-    this.props.setStatus("TUNING...");
+    this.props.setStatus("initializing");
     console.log("Tune button pressed.");
   };
 

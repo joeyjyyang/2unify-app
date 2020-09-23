@@ -3,9 +3,26 @@ import { Text } from "react-native";
 import { connect } from "react-redux";
 
 class StatusBase extends Component {
-  render() {
+  getStatusMessage = () => {
     const { status } = this.props;
 
+    switch (status) {
+      case "push2Tune":
+        return "PUSH 2 TUNE.";
+      case "initializing":
+        return "INITIALIZING...";
+      case "tuning":
+        return "TUNING...";
+      case "finishing":
+        return "FINISHING...";
+      case "completed":
+        return "COMPLETED.";
+      default:
+        return "";
+    }
+  };
+
+  render() {
     return (
       <Text
         style={{
@@ -14,7 +31,7 @@ class StatusBase extends Component {
           fontSize: 20,
         }}
       >
-        {status}
+        {this.getStatusMessage}
       </Text>
     );
   }
