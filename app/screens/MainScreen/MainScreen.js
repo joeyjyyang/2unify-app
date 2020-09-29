@@ -37,9 +37,9 @@ class MainScreenBase extends Component {
   }
 
   render() {
-    const { status } = this.props;
+    const { fontsLoaded } = this.state;
 
-    if (status === "") {
+    if (!fontsLoaded) {
       return <AppLoading />;
     } else {
       return (
