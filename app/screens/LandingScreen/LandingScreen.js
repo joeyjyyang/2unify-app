@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { ImageBackground, Image, StyleSheet, View } from "react-native";
 
 class LandingScreen extends Component {
   render() {
@@ -28,7 +28,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  logo: {},
+  logo: {
+    resizeMode: "contain",
+    height: "70%",
+    width: "70%",
+  },
 });
 
 export default LandingScreen;
