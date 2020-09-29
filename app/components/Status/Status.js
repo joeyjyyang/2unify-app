@@ -31,7 +31,7 @@ class StatusBase extends Component {
           fontSize: 20,
         }}
       >
-        {this.getStatusMessage}
+        {this.getStatusMessage()}
       </Text>
     );
   }

@@ -37,6 +37,8 @@ class MainScreenBase extends Component {
   }
 
   render() {
+    const { status } = this.props;
+
     if (status === "") {
       return <AppLoading />;
     } else {
@@ -48,7 +50,7 @@ class MainScreenBase extends Component {
           >
             <Status />
             <MainTuneButton />
-            <View style={styles.bottomWidgets}>{this.getButton}</View>
+            <View style={styles.bottomWidgets}>{this.getButton()}</View>
           </ImageBackground>
         </View>
       );
