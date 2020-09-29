@@ -25,7 +25,7 @@ class StopTuneButton extends Component {
               <Text
                 style={{
                   color: "#FFFFFF",
-                  fontFamily: "NovaSlim_400Regular",
+                  fontFamily: "Roboto",
                   fontSize: 20,
                 }}
               >

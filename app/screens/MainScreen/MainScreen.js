@@ -1,20 +1,10 @@
 import React, { Component } from "react";
 import { ImageBackground, StyleSheet, View } from "react-native";
 import { Status, StopTuneButton, PowerOffButton } from "../../components/";
-import { AppLoading } from "expo";
-import * as Font from "expo-font";
 import MainTuneButton from "../../components/MainTuneButton/MainTuneButton";
 import { connect } from "react-redux";
 
-let customFonts = {
-  NovaSlim_400Regular: require("../../assets/fonts/NovaSlim-Regular.ttf"),
-};
-
 class MainScreenBase extends Component {
-  state = {
-    fontsLoaded: false,
-  };
-
   getButton = () => {
     const { status } = this.props;
 
@@ -27,34 +17,19 @@ class MainScreenBase extends Component {
     }
   };
 
-  async _loadFontsAsync() {
-    await Font.loadAsync(customFonts);
-    this.setState({ fontsLoaded: true });
-  }
-
-  componentDidMount() {
-    this._loadFontsAsync();
-  }
-
   render() {
-    const { fontsLoaded } = this.state;
-
-    if (!fontsLoaded) {
-      return <AppLoading />;
-    } else {
-      return (
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.background}
-            source={require("../../assets/tunify-static-background.png")}
-          >
-            <Status />
-            <MainTuneButton />
-            <View style={styles.bottomWidgets}>{this.getButton()}</View>
-          </ImageBackground>
-        </View>
-      );
-    }
+    return (
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.background}
+          source={require("../../assets/tunify-static-background.png")}
+        >
+          <Status />
+          <MainTuneButton />
+          <View style={styles.bottomWidgets}>{this.getButton()}</View>
+        </ImageBackground>
+      </View>
+    );
   }
 }
 
