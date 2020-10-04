@@ -9,11 +9,19 @@ class MainScreenBase extends Component {
     const { status } = this.props;
 
     if (status === "push2Tune") {
-      return <PowerOffButton />;
+      return (
+        <View style={{ flexDirection: "row-reverse" }}>
+          <PowerOffButton />
+        </View>
+      );
     }
     // INITIALIZING, TUNING, FINISHING, COMPLETED states
     else {
-      return <StopTuneButton />;
+      return (
+        <View>
+          <StopTuneButton style={{ flexDirection: "row" }} />
+        </View>
+      );
     }
   };
 
@@ -28,10 +36,7 @@ class MainScreenBase extends Component {
             <Status />
           </View>
           <MainTuneButton />
-          <View style={styles.bottomButtons}>
-            <StopTuneButton />
-            <PowerOffButton />
-          </View>
+          <View style={styles.bottomButtons}>{this.getButton()}</View>
         </ImageBackground>
       </View>
     );
@@ -55,7 +60,6 @@ const styles = StyleSheet.create({
     bottom: "12%",
     height: "9%",
     width: "100%",
-    flexDirection: "row",
   },
 });
 
