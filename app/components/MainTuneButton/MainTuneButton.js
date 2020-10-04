@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Image, TouchableWithoutFeedback } from "react-native";
+import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import { setStatus } from "../../state/App.slice";
 import { connect } from "react-redux";
 
@@ -11,20 +11,27 @@ class MainTuneButtonBase extends Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={this.handleTuneButtonPress}>
-        <Image
-          style={styles.tuneButton}
-          source={require("../../assets/tunify-guitar-pick-logo.png")}
-        />
-      </TouchableWithoutFeedback>
+      <View style={styles.container}>
+        <TouchableHighlight onPress={this.handleTuneButtonPress}>
+          <Image
+            style={styles.tuneButton}
+            source={require("../../assets/tunify-guitar-pick-logo.png")}
+          />
+        </TouchableHighlight>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    height: "26%",
+    width: "39%",
+  },
   tuneButton: {
-    width: 200,
-    height: 200,
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
 });
 

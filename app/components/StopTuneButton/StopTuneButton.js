@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
   StyleSheet,
   View,
-  TouchableWithoutFeedback,
+  TouchableHighlight,
   Image,
   Text,
   ImageBackground,
@@ -16,30 +16,34 @@ class StopTuneButton extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={this.handleStopTuneButtonPress}>
-          <ImageBackground
-            style={styles.bar}
-            source={require("../../assets/bar.png")}
-          >
-            <View style={styles.text}>
-              <Text
-                style={{
-                  color: "#FFFFFF",
-                  fontFamily: "Roboto",
-                  fontSize: 20,
-                }}
-              >
-                Stop Tune
-              </Text>
-            </View>
-          </ImageBackground>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={this.handleStopTuneButtonPress}>
+        <TouchableHighlight
+          style={styles.stopIconContainer}
+          onPress={this.handleStopTuneButtonPress}
+        >
           <Image
-            style={styles.stop}
+            style={styles.stopIcon}
             source={require("../../assets/stop.png")}
           />
-        </TouchableWithoutFeedback>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.barContainer}
+          onPress={this.handleStopTuneButtonPress}
+        >
+          <ImageBackground
+            style={styles.bar}
+            source={require("../../assets/stopBar.png")}
+          >
+            <Text
+              style={{
+                color: "#FFFFFF",
+                fontFamily: "Roboto",
+                fontSize: 24,
+              }}
+            >
+              Stop Tune
+            </Text>
+          </ImageBackground>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -47,24 +51,32 @@ class StopTuneButton extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    height: "100%",
+    width: "50%",
+    flexDirection: "row-reverse",
     alignItems: "center",
-    //justifyContent: "center",
+    justifyContent: "center",
   },
-  stop: {
-    width: 60,
-    height: 60,
+  stopIconContainer: {
+    height: "100%",
+    width: "35%",
+    left: 9,
+  },
+  stopIcon: {
+    height: "100%",
+    width: "100%",
+    resizeMode: "stretch",
+  },
+  barContainer: {
+    height: "70%",
+    width: "65%",
   },
   bar: {
-    position: "absolute",
-    right: 55,
-    width: 120,
-    height: 30,
-  },
-  text: {
-    flex: 1,
-    justifyContent: "center",
+    width: "100%",
+    height: "100%",
+    resizeMode: "stretch",
     alignItems: "center",
+    justifyContent: "center",
   },
 });
 

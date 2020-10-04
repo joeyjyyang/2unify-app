@@ -24,9 +24,14 @@ class MainScreenBase extends Component {
           style={styles.background}
           source={require("../../assets/tunify-static-background.png")}
         >
-          <Status />
+          <View style={styles.status}>
+            <Status />
+          </View>
           <MainTuneButton />
-          <View style={styles.bottomWidgets}>{this.getButton()}</View>
+          <View style={styles.bottomButtons}>
+            <StopTuneButton />
+            <PowerOffButton />
+          </View>
         </ImageBackground>
       </View>
     );
@@ -42,9 +47,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  bottomWidgets: {
+  status: {
+    bottom: "8%",
+  },
+  bottomButtons: {
+    position: "absolute",
+    bottom: "12%",
+    height: "9%",
+    width: "100%",
     flexDirection: "row",
-    //justifyContent: "space-between",
+    //borderWidth: 3,
+    //borderColor: "green",
   },
 });
 

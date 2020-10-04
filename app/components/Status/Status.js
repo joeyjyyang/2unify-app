@@ -28,7 +28,7 @@ class StatusBase extends Component {
         style={{
           color: "#FFFFFF",
           fontFamily: "Roboto",
-          fontSize: 20,
+          fontSize: 30,
         }}
       >
         {this.getStatusMessage()}

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
   StyleSheet,
   View,
-  TouchableWithoutFeedback,
+  TouchableHighlight,
   Image,
   Text,
   ImageBackground,
@@ -16,30 +16,34 @@ class PowerOffButton extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={this.handlePowerOffButtonPress}>
-          <Image
-            style={styles.power}
-            source={require("../../assets/power.png")}
-          />
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={this.handlePowerOffButtonPress}>
+        <TouchableHighlight
+          style={styles.barContainer}
+          onPress={this.handlePowerOffButtonPress}
+        >
           <ImageBackground
             style={styles.bar}
-            source={require("../../assets/bar.png")}
+            source={require("../../assets/powerBar.png")}
           >
-            <View style={styles.text}>
-              <Text
-                style={{
-                  color: "#FFFFFF",
-                  fontFamily: "Roboto",
-                  fontSize: 20,
-                }}
-              >
-                Power Off
-              </Text>
-            </View>
+            <Text
+              style={{
+                color: "#FFFFFF",
+                fontFamily: "Roboto",
+                fontSize: 24,
+              }}
+            >
+              Power Off
+            </Text>
           </ImageBackground>
-        </TouchableWithoutFeedback>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.powerIconContainer}
+          onPress={this.handlePowerOffButtonPress}
+        >
+          <Image
+            style={styles.powerIcon}
+            source={require("../../assets/power.png")}
+          />
+        </TouchableHighlight>
       </View>
     );
   }
@@ -47,24 +51,32 @@ class PowerOffButton extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    height: "100%",
+    width: "50%",
+    flexDirection: "row-reverse",
     alignItems: "center",
-    //justifyContent: "center",
+    justifyContent: "center",
   },
-  power: {
-    width: 60,
-    height: 60,
+  powerIconContainer: {
+    height: "100%",
+    width: "35%",
+    right: 9,
+  },
+  powerIcon: {
+    height: "100%",
+    width: "100%",
+    resizeMode: "stretch",
+  },
+  barContainer: {
+    height: "70%",
+    width: "65%",
   },
   bar: {
-    position: "absolute",
-    left: 55,
-    width: 120,
-    height: 30,
-  },
-  text: {
-    flex: 1,
-    justifyContent: "center",
+    width: "100%",
+    height: "100%",
+    resizeMode: "stretch",
     alignItems: "center",
+    justifyContent: "center",
   },
 });
 
