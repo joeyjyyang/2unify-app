@@ -7,9 +7,12 @@ import {
   Text,
   ImageBackground,
 } from "react-native";
+import { setStatus } from "../../state/App.slice";
+import { connect } from "react-redux";
 
-class StopTuneButton extends Component {
+class StopTuneButtonBase extends Component {
   handleStopTuneButtonPress = () => {
+    this.props.setStatus("push2Tune");
     console.log("Stop Tune button pressed.");
   };
 
@@ -79,5 +82,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+/*const mapStateToProps = (state) => {
+  return {};
+};*/
+
+const mapDispatchToProps = {
+  setStatus,
+};
+
+const StopTuneButton = connect(null, mapDispatchToProps)(StopTuneButtonBase);
 
 export default StopTuneButton;
