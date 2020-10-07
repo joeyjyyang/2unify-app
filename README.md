@@ -4,7 +4,8 @@
 
 ## Prerequisites
 
-- I recommend watching the first 30 minutes of this tutorial. It goes over the configuration used for developing this app: https://www.youtube.com/watch?v=0-S5a0eXPoc&t=1567s
+I recommend watching the first 30 minutes of this tutorial. It goes over the configuration used for developing this app: https://www.youtube.com/watch?v=0-S5a0eXPoc&t=1567s
+
 - Visual Studio Code: https://code.visualstudio.com/
 - NodeJS (includes npm): https://nodejs.org/en/download/
 - Android Studio (for Android Emulator): https://developer.android.com/studio
@@ -37,7 +38,11 @@ There are 2 ways to access the 2unify app. The first way is to use an Android Em
 
 ## Overview
 
-This (frontend) app is built using React Native, and uses Redux for state management. The project is comprised of components, screens, and states. Components are the individual building blocks (i.e. buttons), which are composed together to create the various screens seen by users. There are 2 screens associated with this app. A simple `LandingScreen.js` with the 2unify text logo. This is the first screen that users will see upon opening the 2unify app. Afterwards, the `MainScreen.js` is displayed, which contains the `MainTuneButton.js`, `PowerOffButton.js`, `StopTuneButton.js`, and `Status.js` components. The conditional rendering of the buttons and status message are based on the `status` state. Changing this state will ultimately effect what is displayed in `MainScreen.js`.
+This (frontend) app is built using React Native, and uses Redux for state management.
+
+The project is comprised of components, screens, and states. Components are the individual building blocks (i.e. buttons), which are composed together to create the various screens seen by users. There are 2 screens associated with this app. A simple `LandingScreen.js` with the 2unify text logo; this is the first screen that users will see upon opening the 2unify app. Afterwards, the `MainScreen.js` is displayed, which contains the `MainTuneButton.js`, `PowerOffButton.js`, `StopTuneButton.js`, and `Status.js` components.
+
+The conditional rendering of the buttons and status message are based on the `status` state. Changing this state will ultimately effect what is displayed in `MainScreen.js`.
 
 ## States
 
@@ -52,7 +57,7 @@ For more information on how to manage state with Redux, check out:
 ## Next Steps
 
 - Add `tunify-moving-background.mp4` as a video background to screens. Currently, the backgrounds for `MainScreen.js` and `LandingScreen.js` are static, using React Native's `ImageBackground` component.
-- Connect the frontend to the backend.
+- Connect the frontend to the backend (to be built) .
 
 ## Contact
 
